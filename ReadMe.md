@@ -14,7 +14,7 @@
 
 
 
-![wireframe](BlackJackWireframe.png)
+![wireframe](img/BlackJackWireframe.png)
 
 ## 3 -Pseudocode;
 
