@@ -1,0 +1,58 @@
+body {
+    text-align: center;
+    font-size: 80%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    border: solid 3px black;
+    width: 10%;
+    margin: 15px auto;
+    align-items: center;
+}
+
+.pcard {
+    height: 9%;
+    width: 7%;
+    border: solid 3% black;
+    margin: 15px;
+}
+
+.dcard {
+    height: 9%;
+    width: 7%;
+    border: solid 3% black;
+    margin: 15px;
+}
+
+.button {
+    height: 40px;
+    width: 100px;
+    border: solid black 5px;
+    border-radius: 30%;
+    margin-bottom: 15px;
+    margin: 15px;
+    display: inline;
+}
+
+.icon {
+    height: 7%;
+    width: 7%;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+#table {
+    border-radius: 44%;
+    background-color: green;
+    border: solid 10px rgb(243, 141, 8);
+    margin: 15px;
+}
+
+#d-sum {
+    background-color: rgb(197, 74, 117);
+}
+
+#p-sum {
+    background-color: aqua;
+}
