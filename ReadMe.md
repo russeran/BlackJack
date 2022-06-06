@@ -7,3 +7,5 @@ pseudocode of how the game would work in JavaScript
 helpful links (websites about your game, useful resources you would like to use or learn about, etc.)
 you can follow this guide to make a well-formatted Readme using Markdown, the language of .md!
 https://www.markdownguide.org/basic-syntax/##
+
+![alt text](http://url/to/BlackJackWirefram.png)
