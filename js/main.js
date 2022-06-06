@@ -31,7 +31,7 @@ let gameStatus = document.getElementById("game-status")
 function handleClick(evt) {
     if (evt.target.innerText === "HIT") {
 
-    } else if (evt.target.innerText === "STAY") {
+    } else if (evt.target.innerText === "STAND") {
 
     } else if (evt.target.innerText === "NEW GAME") {
         newGame()
