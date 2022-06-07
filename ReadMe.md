@@ -1,4 +1,4 @@
-# BlackJack
+ #BlackJack by Rusen Seran
 ## 1-Rules;
 1.1 -The game includes only a deck of cards(52 cards)
 1.2 -Player starts the game with 2 random cards
@@ -12,17 +12,26 @@
 
 ## 2 -Wireframe;
 
-
-
 ![wireframe](img/BlackJackWireframe.png)
 
 ## 3 -Pseudocode;
 
-pseudocode of how the game would work in JavaScript
-h
+-consts= CARDS, DEALER STOPS = 17, PLAYER MAX =21
 
-consts CARDS, DEALER STOPS = 17, PLAYER MAX =21
+-app states variables= BUTTON
 
+-cached elements = GAME STATUS, DEALER'S SUM, PLAYER'S SUM, DELAER'S CARDS, PLAYER'S CARD
+
+-event listener = buttons
+
+-functions = 
+
+// newGame
+// initGame
+// handleClick
+// getNewCard
+// checkWin
+// checkTie
 
 ## 4 -Helpful links;
 
