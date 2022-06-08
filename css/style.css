@@ -11,15 +11,7 @@ h1 {
     align-items: center;
 }
 
-.pcard {
-    height: 9%;
-    width: 7%;
-    border: solid 3% black;
-    margin: 15px;
-    background-color: wheat;
-}
-
-.dcard {
+img {
     height: 9%;
     width: 7%;
     border: solid 3% black;

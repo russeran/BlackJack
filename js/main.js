@@ -35,29 +35,31 @@ const DEALER_MAX = 17
 
 /*----- app's state (variables) -----*/
 
-
 const newGameButton = document.getElementById("new-game");
-
-
+const hitButton = document.getElementById("hit-button");
+const standButton = document.getElementById("stand-button");
 /*----- cached element references -----*/
 let dealerSum = document.getElementById("d-sum");
 let playerSum = document.getElementById("p-sum");
 let gameStatus = document.getElementById("game-status")
-let cardImg = document.createElement("img")
 
 /*----- event listeners -----*/
-newGameButton.addEventListener("click", init)
+// gameButtons.addEventListener("click", handleClick)
+newGameButton.addEventListener("click", handleClick)
+hitButton.addEventListener("click", handleClick)
+standButton.addEventListener("click", handleClick)
     // newgame button
     // hit button
     // stand button
 
 
 // // /*----- functions -----*/
-init()
 
-function init() {
-    newCardForDealer
-}
+// initGame() {
+//         playerSum.innerHTML = 0
+//         dealerSum.innerHTML = 0
+
+//     }
 // newGame() when click NEW GAme button get 3 random cards 1
 // for Dealer 2
 // for player,
@@ -73,37 +75,62 @@ function init() {
 // if yes delaer sum = dealer sum - 10,
 //     if it dealaer sum > 17 check winner
 // getNewCard
-function getNewCard() {
-    const randomInt = Math.floor(Math.random() * CARD_DECK.length)
-    return CARD_DECK[randomInt]
-}
-// newGame
-function newCardForDealer() {
-    getNewCard()
-    const img = document.createElement("img")
-    img.src = CARD_DECK[randomInt].img
-    document.getElementById("#d-cards").appendChild(img)
-}
 
+// newGame
+
+// function resetGame() {
+
+// }
 
 // // initGame
 // // handleClick
 // // checkWin
 // // checkTie
-// function handleClick() {
 
-//     newGame()
 
-//     // } else if (evt.target.innerText === "STAND") {
+// newGame
+function handleClick(evt) {
 
-//     // } else if (evt.target.innerText === "NEW GAME") {
-//     //     newGame()
-// }
+    if (evt.target.innerText == "NEW GAME") {
+        newCardForDealer()
+        newCardForPlayer()
+        newCardForPlayer()
 
+
+    } else if (evt.target.innerText === "HIT") {
+        newCardForPlayer()
+    } else if (evt.target.innerText === "STAND") {
+        newCardForDealer()
+    }
+
+}
+
+function getNewCard() {
+    const randomInt = Math.floor(Math.random() * CARD_DECK.length)
+    return CARD_DECK[randomInt]
+}
+
+function newCardForDealer() {
+    const newCard = getNewCard()
+    const newCardImg = document.createElement("img")
+    newCardImg.src = newCard.img
+    document.getElementById("d-cards").appendChild(newCardImg)
+    dealerSum.innerHTML += newCard.value
+}
+
+function newCardForPlayer() {
+    const newCardP = getNewCard()
+    const newCardImg = document.createElement("img")
+    newCardImg.src = newCardP.img
+    document.getElementById("p-cards").appendChild(newCardImg)
+    playerSum.innerHTML += newCardP.value
+
+}
 
 
 console.log(gameStatus)
 console.log(dealerSum)
 console.log(playerSum)
 console.log(newGameButton)
-console.log(getNewCard())
+    // console.log(getNewCard())
+    // console.log(newCardForDealer())
