@@ -34,36 +34,37 @@ const MAX_SUM = 21
 const DEALER_MAX = 17
 
 /*----- app's state (variables) -----*/
-
+const state = { pSum: 0, dSum: 0 }
 const newGameButton = document.getElementById("new-game");
 const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
 /*----- cached element references -----*/
-let dealerSum = document.getElementById("d-sum");
-let playerSum = document.getElementById("p-sum");
+let dealerSum = document.getElementById("d-sum")
+let playerSum = document.getElementById("p-sum")
 let gameStatus = document.getElementById("game-status")
 
 /*----- event listeners -----*/
-// gameButtons.addEventListener("click", handleClick)
+// newgame button
+// hit button
+// stand button
 newGameButton.addEventListener("click", handleClick)
 hitButton.addEventListener("click", handleClick)
 standButton.addEventListener("click", handleClick)
-    // newgame button
-    // hit button
-    // stand button
+
 
 
 // // /*----- functions -----*/
 
-// initGame() {
-//         playerSum.innerHTML = 0
-//         dealerSum.innerHTML = 0
+window.onload = function() {
+    playerSum.innerText = parseInt(state.pSum)
+    dealerSum.innerText = parseInt(state.dSum)
 
-//     }
-// newGame() when click NEW GAme button get 3 random cards 1
-// for Dealer 2
-// for player,
-// update playerSum and dealer sum
+}
+
+function StartGame() {
+
+}
+
 // hit() when hit button get a random card
 // for player check player sum
 // if it is more than 21 check
@@ -89,21 +90,60 @@ standButton.addEventListener("click", handleClick)
 
 
 // newGame
+// newGame() when click NEW GAme button get 3 random cards 1
+// for Dealer 2
+// for player,
+// update playerSum and dealer sum
 function handleClick(evt) {
 
-    if (evt.target.innerText == "NEW GAME") {
-        newCardForDealer()
-        newCardForPlayer()
-        newCardForPlayer()
-
-
+    if (evt.target.innerText == "DEAL") {
+        if (state.dSum > 0 || state.pSum) {
+            return
+        } else {
+            // StartGame()
+            newCardForDealer()
+            newCardForPlayer()
+            newCardForPlayer()
+        }
+        // HIT BUTTON FUNCTIONS
     } else if (evt.target.innerText === "HIT") {
-        newCardForPlayer()
-    } else if (evt.target.innerText === "STAND") {
-        newCardForDealer()
-    }
+        if (gameStatus.innerHTML == "PLAYER WINS" || gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
+            return
+        } else {
+            if (playerSum.innerHTML >= MAX_SUM) {
+                // checkA(){
 
+                // }
+                return
+            } else
+                newCardForPlayer()
+            if (playerSum.innerHTML > MAX_SUM)
+                gameStatus.innerHTML = "DEALER WINS"
+        }
+
+        // STAND BUTTON FUNCTIONS
+    } else if (evt.target.innerText === "STAND") {
+        if (gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
+            return
+        } else {
+            if (dealerSum.innerHTML > DEALER_MAX && dealerSum.innerHTML < MAX_SUM) {
+                if (dealerSum.innerHTML > playerSum.innerHTML) {
+                    gameStatus.innerHTML = "DEALER WINS"
+                } else {
+                    gameStatus.innerHTML = "PLAYER WINS"
+                }
+                return
+            }
+            if (dealerSum.innerHTML < DEALER_MAX) {
+                newCardForDealer()
+            }
+            if (dealerSum.innerHTML > MAX_SUM)
+                gameStatus.innerHTML = "PLAYER WINS"
+        }
+
+    }
 }
+
 
 function getNewCard() {
     const randomInt = Math.floor(Math.random() * CARD_DECK.length)
@@ -115,7 +155,8 @@ function newCardForDealer() {
     const newCardImg = document.createElement("img")
     newCardImg.src = newCard.img
     document.getElementById("d-cards").appendChild(newCardImg)
-    dealerSum.innerHTML += newCard.value
+    state.dSum = parseInt(newCard.value + state.dSum)
+    dealerSum.innerHTML = state.dSum
 }
 
 function newCardForPlayer() {
@@ -123,10 +164,15 @@ function newCardForPlayer() {
     const newCardImg = document.createElement("img")
     newCardImg.src = newCardP.img
     document.getElementById("p-cards").appendChild(newCardImg)
-    playerSum.innerHTML += newCardP.value
+    state.pSum = parseInt(newCardP.value + state.pSum)
+    playerSum.innerHTML = state.pSum
+
 
 }
 
+function checkA() {
+    if (playerSum.innerHTML < 21) {}
+}
 
 console.log(gameStatus)
 console.log(dealerSum)

@@ -30,14 +30,13 @@ img {
 }
 
 .icon {
-    height: 7%;
+    height: 9%;
     width: 7%;
     border-radius: 50%;
-    margin: 15px;
+    margin: 20px;
 }
 
 #table {
-    border-radius: 44%;
     background-color: green;
     border: solid 10px rgb(243, 141, 8);
     margin: 15px;
