@@ -38,10 +38,13 @@ const state = { pSum: 0, dSum: 0 }
 const newGameButton = document.getElementById("new-game");
 const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
-/*----- cached element references -----*/
+const findA = document.querySelectorAll("img")
+    /*----- cached element references -----*/
 let dealerSum = document.getElementById("d-sum")
 let playerSum = document.getElementById("p-sum")
 let gameStatus = document.getElementById("game-status")
+let playerAceCount = 0
+let dealerAceCount = 0
 
 /*----- event listeners -----*/
 // newgame button
@@ -61,89 +64,64 @@ window.onload = function() {
 
 }
 
-function StartGame() {
-
-}
-
-// hit() when hit button get a random card
-// for player check player sum
-// if it is more than 21 check
-// if player has an AS player sum = player sum - 10
-// if no AS and over 21 DEALER WINS, deactivate
-// Stand() when click stand button get a dealer new random card check dealer sum
-// if it is less than 17 get another card check
-// if it over 21 check delaer has an AS
-// if yes delaer sum = dealer sum - 10,
-//     if it dealaer sum > 17 check winner
-// getNewCard
-
-// newGame
-
-// function resetGame() {
-
-// }
-
-// // initGame
-// // handleClick
-// // checkWin
-// // checkTie
-
-
-// newGame
-// newGame() when click NEW GAme button get 3 random cards 1
-// for Dealer 2
-// for player,
-// update playerSum and dealer sum
 function handleClick(evt) {
-
+    // DEAL BUTTON GETS 3 NEW CARDS 2 FOR PLAYER 1 FOR DEALER
     if (evt.target.innerText == "DEAL") {
-        if (state.dSum > 0 || state.pSum) {
+        if (state.dSum > 0) {
             return
         } else {
-            // StartGame()
             newCardForDealer()
             newCardForPlayer()
             newCardForPlayer()
+            checkAceForPlayer
         }
-        // HIT BUTTON FUNCTIONS
+        // HIT BUTTON GET A NEW CARD FOR PLAYER IF PLAYER SUM IS < 21
     } else if (evt.target.innerText === "HIT") {
         if (gameStatus.innerHTML == "PLAYER WINS" || gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
             return
         } else {
             if (playerSum.innerHTML >= MAX_SUM) {
-                // checkA(){
-
-                // }
                 return
-            } else
+            } else {
                 newCardForPlayer()
-            if (playerSum.innerHTML > MAX_SUM)
-                gameStatus.innerHTML = "DEALER WINS"
+                checkAceForPlayer()
+            }
+            if (playerSum.innerHTML > MAX_SUM) { gameStatus.innerHTML = "DEALER WINS" }
         }
 
-        // STAND BUTTON FUNCTIONS
+        // STAND BUTTON GET NEW CARDS FOR DEALER TILL DEALER SUM IS > 17
     } else if (evt.target.innerText === "STAND") {
         if (gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
             return
         } else {
+            if (dealerSum.innerHTML > DEALER_MAX && dealerSum.innerHTML < MAX_SUM && dealerSum.innerHTML < playerSum.innerHTML) { checkAceForDealer() }
             if (dealerSum.innerHTML > DEALER_MAX && dealerSum.innerHTML < MAX_SUM) {
-                if (dealerSum.innerHTML > playerSum.innerHTML) {
-                    gameStatus.innerHTML = "DEALER WINS"
-                } else {
-                    gameStatus.innerHTML = "PLAYER WINS"
-                }
+                checkWin()
                 return
             }
-            if (dealerSum.innerHTML < DEALER_MAX) {
+            while (dealerSum.innerHTML < DEALER_MAX) {
                 newCardForDealer()
+                checkAceForDealer()
+                checkWin()
             }
-            if (dealerSum.innerHTML > MAX_SUM)
+            if (dealerSum.innerHTML > MAX_SUM) {
                 gameStatus.innerHTML = "PLAYER WINS"
+            }
+
         }
 
     }
 }
 
+function checkWin() {
+    if (dealerSum.innerHTML > playerSum.innerHTML) {
+        gameStatus.innerHTML = "DEALER WINS"
+    } else if (dealerSum.innerHTML == playerSum.innerHTML) {
+        gameStatus.innerHTML = " TIE "
+    } else {
+        gameStatus.innerHTML = "PLAYER WINS"
+    }
+}
 
 function getNewCard() {
     const randomInt = Math.floor(Math.random() * CARD_DECK.length)
@@ -157,6 +135,9 @@ function newCardForDealer() {
     document.getElementById("d-cards").appendChild(newCardImg)
     state.dSum = parseInt(newCard.value + state.dSum)
     dealerSum.innerHTML = state.dSum
+    if (newCard.value == 11) {
+        dealerAceCount = dealerAceCount + 1
+    }
 }
 
 function newCardForPlayer() {
@@ -166,17 +147,29 @@ function newCardForPlayer() {
     document.getElementById("p-cards").appendChild(newCardImg)
     state.pSum = parseInt(newCardP.value + state.pSum)
     playerSum.innerHTML = state.pSum
-
-
+    if (newCardP.value == 11) {
+        playerAceCount = playerAceCount + 1
+    }
 }
 
-function checkA() {
-    if (playerSum.innerHTML < 21) {}
+function checkAceForPlayer() {
+    if (playerSum.innerHTML > 21 && playerAceCount > 0) {
+        playerSum.innerHTML = playerSum.innerHTML - 10
+    }
 }
 
+function checkAceForDealer() {
+    if (dealerSum.innerHTML > 21 && playerAceCount > 0) {
+        dealerSum.innerHTML = dealerSum.innerHTML - 10
+    }
+}
+
+console.log(findA)
 console.log(gameStatus)
 console.log(dealerSum)
 console.log(playerSum)
 console.log(newGameButton)
+console.log(dealerAceCount)
+console.log(playerAceCount)
     // console.log(getNewCard())
     // console.log(newCardForDealer())
