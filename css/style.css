@@ -12,7 +12,7 @@ h1 {
 }
 
 img {
-    height: 9%;
+    height: 160px;
     width: 7%;
     border: solid 3% black;
     margin: 15px;
@@ -30,10 +30,14 @@ img {
 }
 
 .icon {
-    height: 9%;
+    height: 160px;
     width: 7%;
     border-radius: 50%;
     margin: 20px;
+}
+
+#hcard {
+    display: none;
 }
 
 #table {
