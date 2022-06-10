@@ -1,30 +1,17 @@
 /*----- constants -----*/
 const CARD_DECK = [{ value: 2, img: "cards/2-D.svg" }, { value: 3, img: "cards/3-D.svg" },
-    { value: 4, img: "cards/4-D.svg" }, { value: 5, img: "cards/5-D.svg" },
-    { value: 6, img: "cards/6-D.svg" }, { value: 7, img: "cards/7-D.svg" },
-    { value: 8, img: "cards/8-D.svg" }, { value: 9, img: "cards/9-D.svg" },
-    { value: 10, img: "cards/10-D.svg" }, { value: 10, img: "cards/J-D.svg" },
-    { value: 10, img: "cards/Q-D.svg" }, { value: 10, img: "cards/K-D.svg" },
-    { value: 11, img: "cards/A-D.svg" },
-    { value: 2, img: "cards/2-S.svg" }, { value: 3, img: "cards/3-S.svg" },
-    { value: 4, img: "cards/4-S.svg" }, { value: 5, img: "cards/5-S.svg" },
-    { value: 6, img: "cards/6-S.svg" }, { value: 7, img: "cards/7-S.svg" },
-    { value: 8, img: "cards/8-S.svg" }, { value: 9, img: "cards/9-S.svg" },
-    { value: 10, img: "cards/10-S.svg" }, { value: 10, img: "cards/J-S.svg" },
-    { value: 10, img: "cards/Q-S.svg" }, { value: 10, img: "cards/K-S.svg" },
-    { value: 11, img: "cards/A-S.svg" },
-    { value: 2, img: "cards/2-H.svg" }, { value: 3, img: "cards/3-H.svg" },
-    { value: 4, img: "cards/4-H.svg" }, { value: 5, img: "cards/5-H.svg" },
-    { value: 6, img: "cards/6-H.svg" }, { value: 7, img: "cards/7-H.svg" },
-    { value: 8, img: "cards/8-H.svg" }, { value: 9, img: "cards/9-H.svg" },
-    { value: 10, img: "cards/10-H.svg" }, { value: 10, img: "cards/J-H.svg" },
-    { value: 10, img: "cards/Q-H.svg" }, { value: 10, img: "cards/K-H.svg" },
-    { value: 11, img: "cards/A-H.svg" },
-    { value: 2, img: "cards/2-C.svg" }, { value: 3, img: "cards/3-C.svg" },
-    { value: 4, img: "cards/4-C.svg" }, { value: 5, img: "cards/5-C.svg" },
-    { value: 6, img: "cards/6-C.svg" }, { value: 7, img: "cards/7-C.svg" },
-    { value: 8, img: "cards/8-C.svg" }, { value: 9, img: "cards/9-C.svg" },
-    { value: 10, img: "cards/10-C.svg" }, { value: 10, img: "cards/J-C.svg" },
+    { value: 4, img: "cards/4-D.svg" }, { value: 5, img: "cards/5-D.svg" }, { value: 6, img: "cards/6-D.svg" }, { value: 7, img: "cards/7-D.svg" },
+    { value: 8, img: "cards/8-D.svg" }, { value: 9, img: "cards/9-D.svg" }, { value: 10, img: "cards/10-D.svg" }, { value: 10, img: "cards/J-D.svg" },
+    { value: 10, img: "cards/Q-D.svg" }, { value: 10, img: "cards/K-D.svg" }, { value: 11, img: "cards/A-D.svg" }, { value: 2, img: "cards/2-S.svg" },
+    { value: 3, img: "cards/3-S.svg" }, { value: 4, img: "cards/4-S.svg" }, { value: 5, img: "cards/5-S.svg" }, { value: 6, img: "cards/6-S.svg" },
+    { value: 7, img: "cards/7-S.svg" }, { value: 8, img: "cards/8-S.svg" }, { value: 9, img: "cards/9-S.svg" }, { value: 10, img: "cards/10-S.svg" },
+    { value: 10, img: "cards/J-S.svg" }, { value: 10, img: "cards/Q-S.svg" }, { value: 10, img: "cards/K-S.svg" }, { value: 11, img: "cards/A-S.svg" },
+    { value: 2, img: "cards/2-H.svg" }, { value: 3, img: "cards/3-H.svg" }, { value: 4, img: "cards/4-H.svg" }, { value: 5, img: "cards/5-H.svg" },
+    { value: 6, img: "cards/6-H.svg" }, { value: 7, img: "cards/7-H.svg" }, { value: 8, img: "cards/8-H.svg" }, { value: 8, img: "cards/8-H.svg" },
+    { value: 9, img: "cards/9-H.svg" }, { value: 10, img: "cards/10-H.svg" }, { value: 10, img: "cards/J-H.svg" }, { value: 10, img: "cards/Q-H.svg" },
+    { value: 10, img: "cards/K-H.svg" }, { value: 2, img: "cards/2-C.svg" }, { value: 3, img: "cards/3-C.svg" }, { value: 4, img: "cards/4-C.svg" },
+    { value: 5, img: "cards/5-C.svg" }, { value: 6, img: "cards/6-C.svg" }, { value: 7, img: "cards/7-C.svg" }, { value: 8, img: "cards/8-C.svg" },
+    { value: 8, img: "cards/8-C.svg" }, { value: 9, img: "cards/9-C.svg" }, { value: 10, img: "cards/10-C.svg" }, { value: 10, img: "cards/J-C.svg" },
     { value: 10, img: "cards/Q-C.svg" }, { value: 10, img: "cards/K-C.svg" },
 
 ]
@@ -76,22 +63,26 @@ function handleClick(evt) {
     } else if (evt.target.innerText === "HIT") {
         if (gameStatus.innerHTML != "PLAY" || state.pSum == 0 || playerSum.innerHTML == MAX_SUM) {
             return
-        } else if (playerSum.innerHTML < MAX_SUM) {
+        }
+        if (playerSum.innerHTML < MAX_SUM) {
             newCardForPlayer()
             checkAceForPlayer()
-        } else if (playerSum.innerHTML > MAX_SUM) {
+        }
+        if (playerSum.innerHTML > MAX_SUM) {
             checkAceForPlayer()
             gameStatus.innerHTML = "DEALER WINS"
             endGameReactions()
-        } else { return }
-        // STAND get new cards if dealer sum is < 17
-    } else if (evt.target.innerText === "STAND") {
+        }
+        checkAceForPlayer()
+    }
+    // STAND get new cards if dealer sum is < 17
+    else if (evt.target.innerText === "STAND") {
         if (gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
             return
         } else {
             hitButton.backgroundcolor = "red"
             hiddenCard.display = "none"
-            if (dealerSum.innerHTML > DEALER_MAX && dealerSum.innerHTML <= MAX_SUM) {
+            if (dealerSum.innerHTML > DEALER_MAX - 1 && dealerSum.innerHTML <= MAX_SUM) {
                 checkWin()
                 return
             }
@@ -102,9 +93,9 @@ function handleClick(evt) {
                 checkWin()
 
             }
-            if (dealerSum.innerHTML > MAX_SUM) {
+            if (dealerSum.innerHTML > 21) {
                 checkAceForDealer()
-                if (dealerSum.innerHTML > MAX_SUM) {
+                if (dealerSum.innerHTML > 21) {
                     gameStatus.innerHTML = "PLAYER WINS"
                     endGameReactions()
                 }
@@ -118,11 +109,11 @@ function handleClick(evt) {
 // check the winner or TIE
 function checkWin() {
 
-    if (dealerSum.innerHTML > playerSum.innerHTML) {
+    if (dealerSum.innerHTML < 22 && dealerSum.innerHTML > playerSum.innerHTML || playerSum.innerHTML > MAX_SUM) {
         gameStatus.innerHTML = "DEALER WINS"
     } else if (dealerSum.innerHTML == playerSum.innerHTML) {
-        gameStatus.innerHTML = " TIE "
-    } else {
+        gameStatus.innerHTML = "TIE"
+    } else if (playerSum.innerHTML < 22 && playerSum.innerHTML > dealerSum.innerHTML || dealerSum.innerHTML > MAX_SUM) {
         gameStatus.innerHTML = "PLAYER WINS"
     }
     endGameReactions()
@@ -181,10 +172,12 @@ function endGameReactions() {
     if (gameStatus.innerHTML == "DEALER WINS") {
         playerIcon.src = "img/donkeyface.jpeg"
         playerIcon.id = "endgame"
-    } else if (gameStatus.innerHTML == "PLAYER WINS") {
+    }
+    if (gameStatus.innerHTML == "PLAYER WINS") {
         playerIcon.src = "https://c.tenor.com/GHqpOT9gESUAAAAC/money-bugs-bunny.gif"
         playerIcon.id = "endgame"
-    } else if (gameStatus.innerHTML == "TIE") {
+    }
+    if (gameStatus.innerHTML == "TIE") {
         return
     }
 }
