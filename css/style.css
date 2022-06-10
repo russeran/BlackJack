@@ -13,10 +13,29 @@ h1 {
 
 img {
     height: 160px;
+<<<<<<< HEAD
     width: 7%;
+=======
+    width: 110px;
+>>>>>>> main
     border: solid 3% black;
     margin: 15px;
     background-color: wheat;
+}
+
+#endgame {
+    height: 300px;
+    width: 300px;
+    border-radius: 0%;
+}
+
+#hcard {
+    display: none;
+}
+
+#game-status {
+    width: 170px;
+    background-color: aliceblue;
 }
 
 .button {
@@ -29,9 +48,17 @@ img {
     display: inline;
 }
 
+#deal-button {
+    background-color: greenyellow;
+}
+
 .icon {
     height: 160px;
+<<<<<<< HEAD
     width: 7%;
+=======
+    width: 110px;
+>>>>>>> main
     border-radius: 50%;
     margin: 20px;
 }
@@ -48,8 +75,10 @@ img {
 
 #d-sum {
     background-color: rgb(230, 166, 189);
+    width: 110px;
 }
 
 #p-sum {
     background-color: rgb(202, 224, 224);
+    width: 110px;
 }
