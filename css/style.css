@@ -12,11 +12,19 @@ h1 {
 }
 
 img {
-    height: 9%;
-    width: 7%;
+    height: 160px;
+    width: 110px;
     border: solid 3% black;
     margin: 15px;
     background-color: wheat;
+}
+
+#hcard {
+    display: none;
+}
+
+#game-status {
+    width: 170px;
 }
 
 .button {
@@ -30,8 +38,8 @@ img {
 }
 
 .icon {
-    height: 9%;
-    width: 7%;
+    height: 160px;
+    width: 110px;
     border-radius: 50%;
     margin: 20px;
 }
@@ -44,8 +52,10 @@ img {
 
 #d-sum {
     background-color: rgb(230, 166, 189);
+    width: 110px;
 }
 
 #p-sum {
     background-color: rgb(202, 224, 224);
+    width: 110px;
 }
