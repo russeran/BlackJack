@@ -48,17 +48,13 @@ gameButtons.addEventListener("click", handleClick)
 function handleClick(evt) {
     // DEAL BUTTON GETS 3 NEW CARDS 2 FOR PLAYER 1 FOR DEALER
     if (evt.target.innerText == "DEAL") {
+        dealButton.display = "none"
+        hiddenCard.display = "inline-block"
+        newCardForDealer()
+        newCardForPlayer()
+        newCardForPlayer()
+        checkAceForPlayer()
 
-        if (state.dSum > 0 || hiddenCard.display == "inline-block") {
-            return
-        } else {
-            dealButton.display = "none"
-            hiddenCard.display = "inline-block"
-            newCardForDealer()
-            newCardForPlayer()
-            newCardForPlayer()
-            checkAceForPlayer()
-        }
         // HIT BUTTON GET A NEW CARD FOR PLAYER IF PLAYER SUM IS < 21
     } else if (evt.target.innerText === "HIT") {
         if (gameStatus.innerHTML != "PLAY" || state.pSum == 0 || playerSum.innerHTML == MAX_SUM) {
