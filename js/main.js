@@ -26,10 +26,6 @@ const CARD_DECK = [{ value: 2, img: "cards/2-D.svg" }, { value: 3, img: "cards/3
     { value: 8, img: "cards/8-C.svg" }, { value: 9, img: "cards/9-C.svg" },
     { value: 10, img: "cards/10-C.svg" }, { value: 10, img: "cards/J-C.svg" },
     { value: 10, img: "cards/Q-C.svg" }, { value: 10, img: "cards/K-C.svg" },
-<<<<<<< HEAD
-    { value: 11, img: "cards/A-C.svg" }
-=======
->>>>>>> main
 
 ]
 console.log(CARD_DECK)
@@ -38,18 +34,11 @@ const DEALER_MAX = 17
 
 /*----- app's state (variables) -----*/
 const state = { pSum: 0, dSum: 0 }
-<<<<<<< HEAD
-const newGameButton = document.getElementById("new-game");
-const hitButton = document.getElementById("hit-button");
-const standButton = document.getElementById("stand-button");
-const hiddenCard = document.getElementById("hcard").style
-=======
 const gameButtons = document.getElementById("buttons")
 const dealButton = document.getElementById("deal-button").style
 const hitButton = document.getElementById("hit-button").style
 const hiddenCard = document.getElementById("hcard").style
 const playerIcon = document.getElementById("p-icon")
->>>>>>> main
 
 /*----- cached element references -----*/
 let dealerSum = document.getElementById("d-sum")
@@ -76,10 +65,7 @@ function handleClick(evt) {
         if (state.dSum > 0 || hiddenCard.display == "inline-block") {
             return
         } else {
-<<<<<<< HEAD
-=======
             dealButton.display = "none"
->>>>>>> main
             hiddenCard.display = "inline-block"
             newCardForDealer()
             newCardForPlayer()
@@ -90,20 +76,6 @@ function handleClick(evt) {
     } else if (evt.target.innerText === "HIT") {
         if (gameStatus.innerHTML != "PLAY" || state.pSum == 0 || playerSum.innerHTML == MAX_SUM) {
             return
-<<<<<<< HEAD
-        }
-
-        if (playerSum.innerHTML < MAX_SUM) {
-            newCardForPlayer()
-            checkAceForPlayer()
-        }
-        if (playerSum.innerHTML > MAX_SUM) {
-            checkAceForPlayer()
-            gameStatus.innerHTML = "DEALER WINS"
-
-        }
-
-=======
         } else if (playerSum.innerHTML < MAX_SUM) {
             newCardForPlayer()
             checkAceForPlayer()
@@ -113,15 +85,11 @@ function handleClick(evt) {
             endGameReactions()
         } else { return }
         // STAND get new cards if dealer sum is < 17
->>>>>>> main
     } else if (evt.target.innerText === "STAND") {
         if (gameStatus.innerHTML == "DEALER WINS" || state.pSum == 0) {
             return
         } else {
-<<<<<<< HEAD
-=======
             hitButton.backgroundcolor = "red"
->>>>>>> main
             hiddenCard.display = "none"
             if (dealerSum.innerHTML > DEALER_MAX && dealerSum.innerHTML <= MAX_SUM) {
                 checkWin()
@@ -147,11 +115,7 @@ function handleClick(evt) {
     }
 }
 
-<<<<<<< HEAD
-
-=======
 // check the winner or TIE
->>>>>>> main
 function checkWin() {
 
     if (dealerSum.innerHTML > playerSum.innerHTML) {
@@ -212,16 +176,6 @@ function checkAceForDealer() {
     }
 }
 
-<<<<<<< HEAD
-console.log(gameStatus)
-console.log(dealerSum)
-console.log(playerSum)
-console.log(newGameButton)
-console.log(dealerAceCount)
-console.log(playerAceCount)
-    // console.log(getNewCard())
-    // console.log(newCardForDealer())
-=======
 // end game reactions
 function endGameReactions() {
     if (gameStatus.innerHTML == "DEALER WINS") {
@@ -234,4 +188,3 @@ function endGameReactions() {
         return
     }
 }
->>>>>>> main

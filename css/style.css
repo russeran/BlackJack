@@ -13,11 +13,7 @@ h1 {
 
 img {
     height: 160px;
-<<<<<<< HEAD
-    width: 7%;
-=======
     width: 110px;
->>>>>>> main
     border: solid 3% black;
     margin: 15px;
     background-color: wheat;
@@ -54,17 +50,9 @@ img {
 
 .icon {
     height: 160px;
-<<<<<<< HEAD
-    width: 7%;
-=======
     width: 110px;
->>>>>>> main
     border-radius: 50%;
     margin: 20px;
-}
-
-#hcard {
-    display: none;
 }
 
 #table {
