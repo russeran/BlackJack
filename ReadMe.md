@@ -19,36 +19,23 @@
 
 ## 3 -Pseudocode and Used Technologies;
 
-<<<<<<< HEAD
--consts= 
-CARDS array
- DEALER STOPS = 17, 
-  MAX =21
-
--app states variables= 
-
-BUTTONS
-psum and dsum
-
--cached elements = 
-
-gameStatus, dealerSum, playerSum, delalerCards, playerCards, PlayerAceCount, DealerAceCount
-=======
-used HTML, CSS and Javascript to create this game
+Javascript, Html and CSS used to create this game
 
 Psuedocode
 
--consts= CARDS[], DEALER STOPS = 17, PLAYER MAX =21
->>>>>>> main
+-consts- 
 
--app states variables= 
+CARDS[], DEALER STOPS = 17, PLAYER MAX =21
+
+
+-app states variables -
 
 dealButton
 hitButton
 hiddenCard
 playerIcon
 
--cached elements = 
+-cached elements -
 
 gameStatus, 
 dealerSum
@@ -56,13 +43,12 @@ playerSum
 dealerAceCount
 playerAceCount
 
--event listener = 
+-event listener -
 
 gameButons
 
--functions = 
+-functions-
 
-<<<<<<< HEAD
 handleClick() - for New Game, Deal, Hit and Stand butons
 getNewCard()  - picking a random card from card array
 newCardForPlayer() -gets a new card for player by using getNewCard()
@@ -70,18 +56,6 @@ newCardForDealer() -gets a new card for dealer by using getNewCard()
 checkWin() - helps to check the winner and update the game status
 checkAceForPlayer() - checks if playerSum is over 21 -> reduce A's value to 1
 checkAceForDealer() -checks if dealerSum is over 17 -> reduce A's value to 1
-## 4 -Helpful links & Used Technologies;
-
-Javascript, Html and CSS used to create this game
-=======
-// handleClick()
-// getNewCard()
-// checkWin()
-// newCardForPlayer()
-// newCardForDealer()
-// endGameReactions()
-// checkAceForPlayer()
-// checkAceForDealer()
 
 ## 4 - Future Enhancements
 
@@ -93,9 +67,3 @@ multiplayer option and chips
 https://www.youtube.com/watch?v=PljDuynF-j0&t=880s
 
 
-<<<<<<< HEAD
-## 5- Next Steps;
-Multiplayer option
-and adding bets for each player
-=======
->>>>>>> main
