@@ -44,14 +44,14 @@ gameButons
 
 -functions = 
 
-// handleClick()
-// getNewCard()
-// checkWin()
-// newCardForPlayer()
-// newCardForDealer()
-// endGameReactions()
-// checkAceForPlayer()
-// checkAceForDealer()
+ handleClick() - button tasks
+ getNewCard() - pick a random card from cards array
+ checkWin() - compare dealer's and player's scores to find the winner or tie
+ newCardForPlayer() - get a new card for player
+ newCardForDealer() - get a new card for dealer
+ endGameReactions() - game reactions to the result
+ checkAceForPlayer() - Ace count for player
+ checkAceForDealer() - Ace count for dealer
 
 ## 4 - Future Enhancements
 
